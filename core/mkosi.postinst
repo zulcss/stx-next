@@ -1,0 +1,6 @@
+#!/bin/bash
+
+apt-get update
+
+# enable systemd extensions
+systemctl enable systemd-sysext

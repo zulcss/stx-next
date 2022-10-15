@@ -1,0 +1,65 @@
+[Distribution]
+distribution=debian
+release=bookworm
+
+[Output]
+format=gpt_squashfs 
+output=mkosi.output/edgeos-debian-0.1.raw
+bootable=true
+compress-fs=zstd
+
+[Content]
+WithNetwork=yes
+autologin=yes
+Packages=
+	# needed otherwise mkosi build will fail
+	systemd-resolved
+	# python3
+	python3
+	python3-pip
+	python3-virtualenv
+	# edgeos
+	systemd-container
+	ignition
+        systemd-boot
+	# minimal package set
+	apparmor
+	apt
+	bcache-tools
+	btrfs-progs
+	cryptsetup
+	lvm2
+	multipath-tools
+	netbase
+	open-iscsi
+	sudo
+	openssh-server
+	openssh-client
+	xfsprogs
+	# standard
+	bind9-dnsutils
+	cpio
+	chrony
+	dmidecode
+	dosfstools
+	ed
+	file
+	ftp
+	hdparm
+	info
+	logrotate
+	lshw
+	lsof
+	man-db
+	nftables
+	parted
+	pciutils
+	psmisc
+	rsync
+	strace
+	time
+	usbutils
+	wget
+	xz-utils
+	curl
+        less	
