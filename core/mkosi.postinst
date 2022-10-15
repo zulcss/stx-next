@@ -1,6 +1,7 @@
 #!/bin/bash
 
-apt-get update
+# Remove debian apt, dpkg
+dpkg --purge --force-depends apt libapt-pkg5.0 debconf
 
 # enable systemd extensions
 systemctl enable systemd-sysext
