@@ -1,0 +1,4 @@
+DPkg::Post-Invoke { ${aptGetClean} };
+APT::Update::Post-Invoke { ${aptGetClean} };
+Dir::Cache::pkgcache "";
+Dir::Cache::srcpkgcache "";

@@ -1,10 +1,10 @@
 [Distribution]
-distribution=debian
-release=bookworm
+distribution=ubuntu
+release=kinetic
 
 [Output]
-format=gpt_btrfs
-output=mkosi.output/edgeos-debian-0.1.raw
+format=gpt_squashfs
+output=mkosi.output/edgeos-ubuntu-0.1.raw
 bootable=true
 compress-fs=zstd
 
@@ -15,46 +15,28 @@ Packages=
 	# needed otherwise mkosi build will fail
 	systemd-resolved
 	# python3
-	python3
+	python3-minimal
 	python3-pip
-	python3-virtualenv
-	# edgeos
-        # apt gets removed later
-        apt
-	systemd-container
-        systemd-boot
-        systemd-timesyncd
-	# minimal package set
-	apparmor
-	bcache-tools
-	btrfs-progs
-	cryptsetup
+	# needed to add ppa
+	gpg-agent
+	software-properties-common
+	# minimal packages to install
+	adduser
+	apt-utils
+	console-setup
+	e2fsprogs
+	iproute2
+	iputils-ping
+	isc-dhcp-client
+	kbd
+	kmod
+	less
+	lsb-release
+	mawk
+	mount
 	netbase
-	open-iscsi
+	passwd
+	procps
+	sensible-utils
 	sudo
-	openssh-server
-	openssh-client
-	# standard
-	bind9-dnsutils
-	cpio
-	dmidecode
-	dosfstools
-	ed
-	file
-	hdparm
-	info
-	logrotate
-	lshw
-	lsof
-	nftables
-	parted
-	pciutils
-	psmisc
-	rsync
-	strace
-	time
-	usbutils
-	wget
-	xz-utils
-	curl
-        less	
+	tzdata
