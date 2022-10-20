@@ -2,33 +2,35 @@
 distribution=ubuntu
 release=kinetic
 
-[Output]
-format=gpt_squashfs
-output=mkosi.output/edgeos-ubuntu-0.1.raw
-bootable=true
-compress-fs=zstd
+[Ouptut]
+hostname=localhost
+format=gpt_btrfs
+Compress=zstd
+output=mkosi.output/edgeos-core-0.1.img
 
-[Content]
+[Contents]
 WithNetwork=yes
-autologin=yes
+autologin=true
+BasePackages=conditional
 Packages=
-	# needed otherwise mkosi build will fail
-	systemd-resolved
-	# python3
+	init
+	systemd
+	systemd-sysv
+	udev
+	systemd-container
 	python3-minimal
-	python3-pip
-	# needed to add ppa
-	gpg-agent
 	software-properties-common
-	# minimal packages to install
+	libpam-systemd
+	less
+	gpg-agent
 	adduser
 	apt-utils
 	console-setup
 	e2fsprogs
 	iproute2
 	iputils-ping
-	isc-dhcp-client
 	kbd
+	isc-dhcp-client
 	kmod
 	less
 	lsb-release

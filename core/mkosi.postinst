@@ -1,10 +1,5 @@
 #!/bin/bash
 
-# Remove snapd and make sure it doesnt come back
-apt autoremove --purge -y snapd netplan.io linux-headers-generic \
-	linux-headers linux-firmware
-apt-mark hold snapd
-
 # Enable edgeos repository and upgrade packages
 add-apt-repository -y ppa:zulcss/stx-next 
 apt-get update -y && apt-get dist-upgrade -y
@@ -12,3 +7,10 @@ apt-get update -y && apt-get dist-upgrade -y
 # Store package manifest
 dpkg -l > /oem/package.list
 
+# Setup the "sysadmin" user
+useradd -m -s /bin/bash sysadmin
+usermod sysadmin -a -G sudo
+echo 'sysadmin:sysadmin' | chpasswd
+chown -R sysadmin:sysadmin /home/sysadmin
+
+systemctl enable systemd-sysupdate.service
