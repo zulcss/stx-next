@@ -13,4 +13,3 @@ usermod sysadmin -a -G sudo
 echo 'sysadmin:sysadmin' | chpasswd
 chown -R sysadmin:sysadmin /home/sysadmin
 
-systemctl enable systemd-sysupdate.service

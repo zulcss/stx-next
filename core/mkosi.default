@@ -42,3 +42,10 @@ Packages=
 	sensible-utils
 	sudo
 	tzdata
+	dnsmasq-base
+	iptables
+	apparmor
+	fuse-overlayfs
+	openssh-client
+	openssh-server
+	git
