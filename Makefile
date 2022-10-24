@@ -1,8 +1,8 @@
 all: clean build
 clean:
 	make -C core clean
-	make -C os clean
+	make -C core clean
 
 build:
 	make -C core build
-	make -C os build
+	make -C core build
