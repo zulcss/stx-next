@@ -1,0 +1,6 @@
+[Unit]
+Description=Simple portable test service
+
+[Service]
+Type=exec
+ExecStart=/bin/sh -c 'while /bin/sleep 5; do echo ping; done'
