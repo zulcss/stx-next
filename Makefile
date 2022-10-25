@@ -1,8 +1,4 @@
-all: clean build
-clean:
-	make -C core clean
-	make -C core clean
-
-build:
-	make -C core build
-	make -C core build
+all: container
+container:
+	sudo mkosi -C core/container clean
+	sudo mkosi -C core/container build
